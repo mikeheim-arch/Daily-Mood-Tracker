@@ -162,23 +162,15 @@
 
         }
 
-        function saveSettings() {
-
-            const pin = document.getElementById('set-pin').value;
-
-            const phone = document.getElementById('contact-phone').value;
-
-            if (pin.length === 4 && phone) {
-
-                localStorage.setItem('app_pin', pin);
-
-                localStorage.setItem('emergency_phone', phone);
-
-                location.reload();
-
-            } else { alert("Complete all fields."); }
-
-        }
+        <!-- Setup Card -->
+<div class="card" id="setup-card" style="display:none;">
+    <h2>Initial Security Setup</h2>
+    <p>Save this recovery phrase in a safe place. You will need it if you forget your PIN.</p>
+    <div id="generated-phrase" class="recovery-box"></div>
+    <input type="tel" id="contact-phone" placeholder="Emergency Phone Number" style="width:100%; padding:10px; margin-bottom:10px;">
+    <input type="password" id="set-pin" placeholder="Set 4-Digit PIN" maxlength="4" style="width:100%; padding:10px; margin-bottom:10px;">
+    <button class="btn-save" onclick="saveSettings()">Secure App & Start</button>
+</div>
 
         function checkPin() {
 
